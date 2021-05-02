@@ -1,4 +1,5 @@
 from tkinter import *
+from PIL import ImageTk, Image
 window = Tk()
 #Зададим размер окна
 window.minsize(width=700, height=700)
@@ -6,7 +7,7 @@ window.minsize(width=700, height=700)
 #Заголовок окна
 window.title=("Chebu-pizza")
 #Создадим холст для геометрических фигур
-canv=Canvas(window, width=700, height=700, bg='lightgrey', cursor='pencil')
+canv=Canvas(window, width=700, height=700, bg='white', cursor='pencil')
 #Вывод холста в GUI
 canv.pack()
 
@@ -32,9 +33,17 @@ canv.create_line(490,630,500,665, width=5, fill="yellow")
 canv.create_line(490,630,520,655, width=5, fill="yellow")
 
 
+#Рисуем  левое крылышко
+canv.create_polygon([280,340],[310,280],[230,200],[175,305], fill="yellow", outline="yellow")
+canv.create_polygon([175,305],[160,280],[193,272],fill="yellow", outline="yellow")
+canv.create_polygon([193,272.3],[155,230],[211,238.1], fill="yellow", outline="yellow")
+canv.create_polygon([211,238.1],[187,198],[230,200], fill="yellow", outline="yellow")
 
-canv.create_line(280,340,175,305, width=5, fill="yellow")
-canv.create_line(400,300,500,300, width=5, fill="yellow")
+#Рисуем  правое крылышко
+canv.create_polygon([390,280],[420,340],[510,290],[470,220], fill="yellow", outline="yellow")
+canv.create_polygon([510,290],[540,260],[497,267.25],fill="yellow", outline="yellow")
+canv.create_polygon([497,267.25],[545,220],[483,242.75], fill="yellow", outline="yellow")
+canv.create_polygon([483,242.75],[520,198],[470,220], fill="yellow", outline="yellow")
 
 
 #Создаем круги(инверсный вход.Точки-координаты противоположных углов треугольника)
@@ -53,9 +62,21 @@ canv.create_text(330, 460,
               text="k=-Roc/R1",
               justify=CENTER, font="Verdana 14")
 
+canv.create_text(350, 60, 
+              text="Uвых",
+              justify=CENTER, font="Verdana 14")
+canv.create_text(230, 160, 
+              text="ко-ко-ко!",
+              justify=CENTER, font="Verdana 14")
 
 
 
+
+
+#Импортируем библиотеку для работы с изображениями и вставляем фото
+pilImage = Image.open("head.gif")
+image = ImageTk.PhotoImage(pilImage)
+imagesprite = canv.create_image(350,160,image=image)
 
 
 window.mainloop()
