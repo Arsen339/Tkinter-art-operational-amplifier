@@ -116,6 +116,11 @@ def PrintImage():
     canv.create_line(490,520,550,520, width=2, fill="black")
     canv.create_line(550,550,550,490, width=4, fill="black")
 
+    
+
+    for i in range(0,700,20):
+      canv.create_line(i,0,i,700, width=0.005, fill="grey")   
+      print(i)
 
 
     window.mainloop()
