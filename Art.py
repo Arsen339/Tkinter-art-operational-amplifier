@@ -1,7 +1,9 @@
 from tkinter import *
 from PIL import ImageTk, Image
 
-
+#Имя файла с головой курицы
+#Параметризовано имя файла
+path=("head.gif")
 
 window = Tk()
 #Зададим размер окна
@@ -90,7 +92,7 @@ canv.create_text(70, 310,
 
 
 #Импортируем библиотеку для работы с изображениями и вставляем фото
-pilImage = Image.open("head.gif")
+pilImage = Image.open(path)
 image = ImageTk.PhotoImage(pilImage)
 imagesprite = canv.create_image(350,160,image=image)
 
@@ -118,9 +120,7 @@ canv.create_line(550,550,550,490, width=4, fill="black")
 
 
 
-for i in range(0,700,20):
-  canv.create_line(i,0,i,700, width=0.005, fill="grey")   
-  print(i)
+
 
 
 window.mainloop()
